@@ -1,0 +1,18 @@
+$font-family: "Merriweather", sans-serif;
+$font-size-root: 16px;
+$font-size-base: 16px;
+$max-width: 1024px;
+
+$color-primary: #02bfe7;
+
+$color-gray: #7a8fa2;
+$color-gray-light: lighten($color-gray, 10%);
+$color-gray-lighter: lighten($color-gray, 20%);
+$color-gray-dark: darken($color-gray, 20%);
+$color-gray-darker: darken($color-gray, 30%);
+
+$spacer-xs: 0.5rem;
+$spacer-sm: 0.8rem;
+$spacer: 1rem;
+$spacer-lg: 2rem;
+$spacer-xl: 3rem;
