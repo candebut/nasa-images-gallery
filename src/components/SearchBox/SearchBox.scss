@@ -6,24 +6,21 @@
 }
 
 .SearchBox-input {
+  border-radius: 8px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
   display: block;
   width: 100%;
   padding: $spacer-sm;
   padding-right: 4rem;
   font-family: $font-family;
   color: #38495b;
-  background-color: #fdfdfd;
-  border: 0;
-  border-radius: 3px;
+  background-color: transparent;
   outline: 0;
   appearance: none;
   line-height: normal;
   font-size: rem(16px);
-  border: 2px solid $color-gray-lighter;
-
-  transition: 200ms border, background, box-shadow, color ease-in-out;
-  will-change: border, background, box-shadow, color;
-
+  border: none;
   &::placeholder {
     color: $color-gray-lighter;
   }
@@ -67,7 +64,7 @@
 .SearchBox-submitButton {
   position: absolute;
   right: 1rem;
-  top: calc(50% - 16px);
+  top: 10px;
 
   display: inline-block;
   width: 32px;
@@ -78,4 +75,44 @@
   cursor: pointer;
   outline: none;
   box-shadow: none;
+}
+
+.date-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-top: 20px;
+
+  .date-input {
+    max-width: 200px;
+    border: none;
+    font-size: 18px;
+    line-height: 20px;
+    z-index: 1;
+    background: transparent no-repeat;
+    padding: 8px 4px;
+    display: block;
+    min-width: 0;
+    color: gray;
+    box-sizing: content-box;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+
+    &::placeholder {
+      color: $color-gray-lighter;
+    }
+    &:focus,
+    &:hover {
+      background-color: #fff;
+      border-color: #061f4a;
+    }
+  }
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 }

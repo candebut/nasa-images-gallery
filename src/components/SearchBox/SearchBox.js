@@ -71,18 +71,22 @@ class SearchBox extends React.Component {
         <button className="SearchBox-submitButton">
           <SearchBoxIcon />
         </button>
-        <input
-          value={this.state.startDate}
-          type="number"
-          placeholder="From"
-          onChange={this.handleStartDate}
-        />
-        <input
-          value={this.state.endDate}
-          type="number"
-          placeholder="To"
-          onChange={this.handleEndDate}
-        />
+        <div className="date-box">
+          <input
+            className="date-input"
+            value={this.state.startDate}
+            type="number"
+            placeholder="From"
+            onChange={this.handleStartDate}
+          />
+          <input
+            className="date-input"
+            value={this.state.endDate}
+            type="number"
+            placeholder="To"
+            onChange={this.handleEndDate}
+          />
+        </div>
       </form>
     );
   }
