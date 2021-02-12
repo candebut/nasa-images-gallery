@@ -6,6 +6,7 @@ import SearchBox from "../../components/SearchBox";
 import Gallery from "../../components/Gallery";
 import GalleryItem from "../../components/GalleryItem";
 import Loader from "../../components/Loader";
+import moment from "moment";
 import "./Search.css";
 
 class Search extends React.Component {
@@ -15,37 +16,81 @@ class Search extends React.Component {
     this.state = {
       assets: [],
       isLoading: true,
+      startDate: undefined,
+      endDate: undefined,
     };
   }
 
   componentDidMount() {
     const {
       match: {
-        params: { query },
+        params: { query, startDate, endDate },
       },
     } = this.props;
 
-    this.searchAssets(query);
+    this.searchAssets(query, startDate, endDate);
   }
 
-  searchAssets(query) {
+  searchAssets(query, startDate, endDate) {
     this.setState({ isLoading: true });
 
     api
       .search(query)
       .then((response) => {
         this.setState({ isLoading: false });
-        this.setState({ assets: normalize.search(response) });
+
+        if (
+          startDate > 0 &&
+          startDate !== undefined &&
+          startDate !== "" &&
+          (endDate === undefined || endDate === "")
+        ) {
+          let result = normalize.search(response);
+          result = result.filter(
+            (res) => res.dateCreated.slice(0, 4) >= startDate
+          );
+          this.setState({ assets: result });
+        } else if (
+          endDate !== undefined &&
+          endDate !== "" &&
+          (startDate === undefined || startDate === "")
+        ) {
+          let result = normalize.search(response);
+          result = result.filter(
+            (res) => res.dateCreated.slice(0, 4) <= endDate
+          );
+
+          this.setState({ assets: result });
+        } else if (
+          startDate > 0 &&
+          startDate !== undefined &&
+          startDate !== "" &&
+          endDate !== "" &&
+          endDate !== undefined
+        ) {
+          let result = normalize.search(response);
+          result = result.filter(
+            (res) => res.dateCreated.slice(0, 4) >= startDate
+          );
+          result = result.filter(
+            (res) => res.dateCreated.slice(0, 4) <= endDate
+          );
+
+          this.setState({ assets: result });
+        } else {
+          console.log("hi");
+          this.setState({ assets: normalize.search(response) });
+        }
       })
       .catch((error) => {
         this.setState({ isLoading: false });
       });
   }
 
-  handleSubmit = (query) => {
+  handleSubmit = (query, startDate, endDate) => {
     const { history } = this.props;
     history.push(`/search/${query}`);
-    this.searchAssets(query);
+    this.searchAssets(query, startDate, endDate);
   };
 
   render() {
@@ -84,6 +129,8 @@ class Search extends React.Component {
               onSubmit={this.handleSubmit}
               shadow={false}
               query={query}
+              startDate={this.state.startDate}
+              endDate={this.state.end}
             />
           </Header>
         </div>
