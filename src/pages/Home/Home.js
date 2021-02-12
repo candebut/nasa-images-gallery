@@ -13,10 +13,10 @@ export class Home extends React.Component {
 
   render() {
     return (
-      <div className="Home">
+      <div className={`Home Home--bg${getRandom(10)}`}>
         <div className="Home-content">
           <div className="Home-logo">
-            <h1 className="Home-title">images</h1>
+            <h1 className="Home-title">Welcome to the NASA bank of images!</h1>
           </div>
           <SearchBox onSubmit={this.handleSubmit} />
         </div>

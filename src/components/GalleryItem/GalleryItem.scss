@@ -13,10 +13,8 @@
 
   transition-property: box-shadow;
   transition-duration: 200ms;
-  // will-change: box-shadow, transform;
 
   &:hover {
-    // transform: translate(0, -2px);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
   }
 }
@@ -47,9 +45,6 @@
 .GalleryItem-imageWrapper {
   display: block;
   margin: $spacer;
-  background-image: url("./../../assets/loader.svg");
-  background-repeat: no-repeat;
-  background-position: center;
 }
 
 .GalleryItem-image {

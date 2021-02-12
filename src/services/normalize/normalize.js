@@ -1,11 +1,11 @@
-import { camelizeKeys } from 'humps';
+import { camelizeKeys } from "humps";
 
-const camelizeJSON = json =>
+const camelizeJSON = (json) =>
   camelizeKeys(json, (key, convert) => {
     return /^[A-Z0-9_]+$/.test(key) ? key : convert(key);
   });
 
-const normalizeItem = item => {
+const normalizeItem = (item) => {
   const camelizedItem = camelizeJSON(item);
   const data = camelizedItem.data[0];
   const { dateCreated, description, nasaId, secondaryCreator, title } = data;
@@ -21,8 +21,8 @@ const normalize = {
     return normalizeItem(collection.items[0]);
   },
   search: ({ collection }) => {
-    return collection.items.map(item => normalizeItem(item));
-  }
+    return collection.items.map((item) => normalizeItem(item));
+  },
 };
 
 export default normalize;

@@ -15,7 +15,7 @@
   padding-right: 4rem;
   font-family: $font-family;
   color: #38495b;
-  background-color: transparent;
+  background-color: whitesmoke;
   outline: 0;
   appearance: none;
   line-height: normal;
@@ -27,8 +27,8 @@
 
   &:focus,
   &:hover {
-    background-color: #fff;
-    border-color: $color-primary;
+    box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 2px 0 rgba(0, 0, 0, 0.14),
+      0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 2px 3px 0 rgba(0, 0, 0, 0.12);
 
     ~ .SearchBox-submitButton .SearchBox-icon {
       fill: $color-primary;
@@ -91,7 +91,7 @@
     font-size: 18px;
     line-height: 20px;
     z-index: 1;
-    background: transparent no-repeat;
+    background: whitesmoke no-repeat;
     padding: 8px 4px;
     display: block;
     min-width: 0;
@@ -106,8 +106,9 @@
     }
     &:focus,
     &:hover {
-      background-color: #fff;
-      border-color: #061f4a;
+      box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.12),
+        0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 2px 1px -1px rgba(0, 0, 0, 0.2),
+        0 2px 3px 0 rgba(0, 0, 0, 0.12);
     }
   }
   input[type="number"]::-webkit-inner-spin-button,
