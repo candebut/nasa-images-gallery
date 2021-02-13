@@ -1,5 +1,8 @@
 import React from "react";
+import './Loader.css'
 
-const Loader = () => <h3>Loading...</h3>;
+const Loader = () => <div className="loader center">
+<i className="fa fa-cog fa-spin" />
+</div>;
 
 export default Loader;
