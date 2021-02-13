@@ -6,7 +6,6 @@ import SearchBox from "../../components/SearchBox";
 import Gallery from "../../components/Gallery";
 import GalleryItem from "../../components/GalleryItem";
 import Loader from "../../components/Loader";
-import moment from "moment";
 import "./Search.css";
 
 class Search extends React.Component {

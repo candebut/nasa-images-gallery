@@ -76,14 +76,14 @@ class SearchBox extends React.Component {
             className="date-input"
             value={this.state.startDate}
             type="number"
-            placeholder="From"
+            placeholder="From year"
             onChange={this.handleStartDate}
           />
           <input
             className="date-input"
             value={this.state.endDate}
             type="number"
-            placeholder="To"
+            placeholder="To year"
             onChange={this.handleEndDate}
           />
         </div>

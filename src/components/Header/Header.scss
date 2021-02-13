@@ -6,8 +6,9 @@
   padding: $spacer 0;
   align-self: baseline;
   background-color: #fff;
-  border-bottom: 1px solid #dae0e4;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.14),
+    0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+    border: none;
 
   @include from-medium {
     padding: $spacer 0;

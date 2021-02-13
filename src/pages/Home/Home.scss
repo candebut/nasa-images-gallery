@@ -14,17 +14,6 @@
   background-size: cover;
 }
 
-@for $i from 1 through 10 {
-  .Home--bg#{$i} {
-    background-image: linear-gradient(
-        to right,
-        rgba(#000, 0.6),
-        rgba(#000, 0.6)
-      ),
-      url("./backgrounds/#{$i}.jpg");
-  }
-}
-
 .Home-logo {
   display: flex;
   margin-top: -4rem;
